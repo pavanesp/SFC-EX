@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="srhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+
+<property name="mappings">
+<props>
+<prop key="welcome.htm">sfc</prop>
+<prop key="get.htm">ac</prop>
+<prop key="edit.htm">ec</prop>
+<prop key="delete.htm">dc</prop>
+
+</props>
+</property>
+
+</bean>
+
+<bean id="sfc" class="com.nt.controller.EmployeController">
+
+<property name="formView" value="student"/>
+<property name="commandName" value="stCmd"/>
+<property name="commandClass" value="com.nt.command.EmployeCommand"/>
+<constructor-arg ref="empService"/>
+
+</bean>
+
+<bean id="ec" class="com.nt.controller.EditController">
+<property name="formView" value="edit"/>
+<property name="commandName" value="editCmd"/>
+<property name="commandClass" value="com.nt.command.EmployeCommand"/>
+<constructor-arg ref="empService"/>
+</bean>
+
+<bean id="dc" class="com.nt.controller.DeleteController">
+<constructor-arg ref="empService"/>
+
+</bean>
+
+
+
+<bean id="ac" class="com.nt.controller.FetchEmployeDetailsController">
+<constructor-arg ref="empService"></constructor-arg>
+</bean>
+
+<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"/>
+<property name="suffix" value=".jsp"/>
+</bean>
+
+</beans>
