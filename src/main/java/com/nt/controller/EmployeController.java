@@ -33,7 +33,7 @@ public class EmployeController extends SimpleFormController{
   EmployeCommand cmd=(EmployeCommand)command;		
 		EmployeDto dto=new EmployeDto();
   BeanUtils.copyProperties(cmd,dto);
-		
+		System.out.println();
   System.out.println(dto.getDeptNo());
   
   
