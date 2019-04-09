@@ -19,6 +19,7 @@ public class FetchEmployeDetailsController extends AbstractController{
 	public FetchEmployeDetailsController(EmployeService service) {
 		super();
 		this.service = service;
+                 System.out.println("fetching controller");
 	}
 
 
