@@ -36,7 +36,7 @@ public class EditController extends SimpleFormController{
 		EmployeCommand cmd=null;
 		cmd=new EmployeCommand();
 		BeanUtils.copyProperties(dto, cmd);
-
+        System.out.println("eeeeeeeeeeeeeeees");
 		return cmd;
 	}
 	
